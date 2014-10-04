@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-app="app" ng-controller="MainController" ng-cloak>
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#/home" class="navbar-brand">Bookstore Anemoi</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#/add-artist">Categories</a>
+                </li>
+                <li>
+                    <a href="#/all-artists">Latest books</a>
+                </li>
+                <li>
+                    <a href="#/all-albums">Search</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div ng-view>
+
+</div>
+
+<hr />
+<footer class="text-center" ng-cloak>
+    <small><strong>Author:</strong> <a href="https://github.com/NodeJS-Team-Anemoi/TeamworkProject" target="_blank">Team Anemoi</a></small>
+</footer>
+<hr />
+
+<script src="../bower_components/angular"></script>
+<script src="../bower_components/angular-resource"></script>
+<script src="../bower_components/angular-route"></script>
+<script src="../bower_components/angular-sanitize"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
