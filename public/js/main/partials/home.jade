@@ -1,0 +1,13 @@
+.container
+    .jumbotron
+        h1 Bookstore Anemoi
+        h2 The best bookstore in the world
+    .row
+        .col-md-6
+            .panel.panel-info
+                .panel-heading.text-center Featured
+                .panel-body(ng-include="'/main/partials/featured-books'")
+    .col-md-6
+        .panel.panel-info
+            .panel-heading.text-center New
+            .panel-body(ng-include="'/main/partials/new-books'")
