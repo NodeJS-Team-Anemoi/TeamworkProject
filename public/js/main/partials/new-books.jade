@@ -1,4 +1,4 @@
-div(ng-repeat="book in books | orderBy: '-published' | limitTo: 10")
+div(ng-repeat="book in books | orderBy: '-publishedDate' | limitTo: 10")
     .row
         .col-md-3
             | {{ book.publishedDate | date: 'MMM d yyyy' }}

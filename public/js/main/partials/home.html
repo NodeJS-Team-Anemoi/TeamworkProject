@@ -3,13 +3,18 @@
     <h1>Bookstore Anemoi</h1>
     <h2>The best bookstore in the world</h2>
   </div>
-  <!--.row-->
-      <!--.col-md-6-->
-          <!--.panel.panel-info-->
-              <!--.panel-heading.text-center Featured-->
-              <!--.panel-body(ng-include="'/partials/main/featured-courses'")-->
-  <!--.col-md-6-->
-      <!--.panel.panel-info-->
-          <!--.panel-heading.text-center New-->
-          <!--.panel-body(ng-include="'/partials/main/new-courses'")-->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading text-center">Featured</div>
+        <div ng-include="'/main/partials/featured-books'" class="panel-body"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading text-center">New</div>
+      <div ng-include="'/main/partials/new-books'" class="panel-body"></div>
+    </div>
+  </div>
 </div>
