@@ -1,5 +1,18 @@
 extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+block main-content
+    header.nav.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href="#/") Bookstore Anemoi
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="#/") Home
+                    li
+                        a(href="#/courses") Courses
+                div(ng-include="'../public/js/account/partials/login'")
+    section
+        div(ng-view)
+    footer
+        p.text-center
+            | &copy; Telerik Academy 2014

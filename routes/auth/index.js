@@ -3,7 +3,7 @@ var router = express.Router();
 
 module.exports = function (passport) {
     router.get('/login', function(req, res) {
-        res.render(/* login view */);
+        res.render('../../public/js/partials/login');
     });
     
     router.post('/login', passport.authenticate('local-login', {
@@ -12,7 +12,7 @@ module.exports = function (passport) {
 	}));
     
     router.get('/signup', function(req, res) {
-		res.render(/* sign up view */);
+		res.render('../../public/js/partials/register');
 	});
     
     router.post('/signup', passport.authenticate('local-signup', {
