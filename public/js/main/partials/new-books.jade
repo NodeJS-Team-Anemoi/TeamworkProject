@@ -1,0 +1,6 @@
+div(ng-repeat="book in books | orderBy: '-published' | limitTo: 10")
+    .row
+        .col-md-3
+            | {{ book.publishedDate | date: 'MMM d yyyy' }}
+        .col-md-9
+            a(href="#/books/{{ book._id }}") {{ book.title }}
