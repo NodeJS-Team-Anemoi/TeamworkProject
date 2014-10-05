@@ -44,10 +44,18 @@ app.use(passport.session());
 
 // Routes
 var index = require('./routes/index');
-var auth = require('./routes/auth')(passport); // app as a parameter?
+var auth = require('./routes/auth')(passport);
+var administration = require('./routes/api/administration');
+var chat = require('./routes/api/chat');
+var order = require('./routes/api/order');
+var shoppingCart = require('./routes/api/shoppingCart');
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/admin', administration);
+//app.use('/chat', chat);
+app.use('/order', order);
+app.use('/shoppingCart', shoppingCart);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

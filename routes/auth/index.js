@@ -1,23 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-module.exports = function (passport) {
-    router.get('/login', function(req, res) {
-        res.render('../../public/js/partials/login');
-    });
-    
+module.exports = function (passport) {    
     router.post('/login', passport.authenticate('local-login', {
 		successRedirect : '/',
-		failureRedirect : '/login'
+		failureRedirect : '/auth/login'
 	}));
-    
-    router.get('/signup', function(req, res) {
-		res.render('../../public/js/partials/register');
-	});
     
     router.post('/signup', passport.authenticate('local-signup', {
 		successRedirect : '/',
-		failureRedirect : '/signup'
+		failureRedirect : '/auth/signup'
 	}));
     
     router.get('/logout', function(req, res) {
@@ -27,6 +19,9 @@ module.exports = function (passport) {
     
     return router;
 };
+
+
+// Middleware that checks if the request is authenticated
 
 function isLoggedIn(req, res, next) {
 

@@ -9,10 +9,14 @@ block main-content
                     li
                         a(href="#/") Home
                     li
-                        a(href="#/courses") Courses
-                div(ng-include="'../public/js/account/partials/login'")
+                        a(href="#/categories") Categories
+                    li
+                        a(href="#/books") Latest books
+                    li
+                        a(href="#/search") Search
+                div(ng-include="app/account/partials/login")
     section
         div(ng-view)
-    footer
-        p.text-center
-            | &copy; Telerik Academy 2014
+    footer.text-center(ng-cloak)
+        a(href="https://github.com/NodeJS-Team-Anemoi/TeamworkProject", target="_blank")
+            | &copy; Team Anemoi - 2014

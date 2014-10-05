@@ -1,10 +1,11 @@
-doctype html
+doctype
 html
-  head
-    title Bookstore
-    link(rel='stylesheet', href='../public/css/bootstrap.css')
-    link(rel='stylesheet', href='../public/css/style.css'')
-  body(ng-app="Bookstore")
-    block main-content
-    include scripts
-    include currentUser
+    head
+        title Bookstore
+        //link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='stylesheet', href='/css/bootstrap-theme.css')
+    body(ng-app="Bookstore", ng-controller="MainController", ng-cloak)
+        block main-content
+
+        include scripts
