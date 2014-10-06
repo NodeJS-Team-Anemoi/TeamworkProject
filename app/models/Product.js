@@ -8,6 +8,7 @@ var ProductSchema = new Schema({
     rating: Number,
     timesPurchased: Number,
     publisher: String,
+    image: String, //Image encoded in Base64. Render it with <img src="data:image/png;base64,iVBORw0KGgA..." />
     year: Number,
     isbn: String,
     pages: Number,

@@ -5,7 +5,9 @@ var userSchema = mongoose.Schema({
     local: {
         username: String,
         email: String,
-        password: String
+        password: String,
+        role: String,
+        address: String
     }
     // Degine here the Facebook, Google and other socal schemas
 });
