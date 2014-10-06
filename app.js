@@ -45,13 +45,15 @@ app.use(passport.session());
 // Routes
 var index = require('./routes/index');
 var auth = require('./routes/auth')(passport);
+var users = require('./routes/api/users');
 var administration = require('./routes/api/administration');
 var chat = require('./routes/api/chat');
-var order = require('./routes/api/order');
+var order = require('./routes/api/orders');
 var shoppingCart = require('./routes/api/shoppingCart');
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/users', users);
 app.use('/admin', administration);
 //app.use('/chat', chat);
 app.use('/order', order);

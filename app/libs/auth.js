@@ -10,9 +10,7 @@ function isLoggedIn (req, res, next) {
 
 // Middleware that checks if the user is admin
 function isAdmin (req, res, next) {
-    console.log("User role: ", req.user.local.role);
-    console.log("User role === 'Admin' : ", req.user.local.role === 'Admin');
-    if (req.user.local.role === 'Admin') {
+    if (req.isAuthenticated() && req.user.local.role === 'Admin') {
         return next();
     }
     else {

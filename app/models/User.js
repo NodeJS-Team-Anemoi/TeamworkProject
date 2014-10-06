@@ -7,7 +7,8 @@ var userSchema = mongoose.Schema({
         email: String,
         password: String,
         role: String,
-        address: String
+        address: String,
+        deleted: Boolean
     }
     // Degine here the Facebook, Google and other socal schemas
 });
