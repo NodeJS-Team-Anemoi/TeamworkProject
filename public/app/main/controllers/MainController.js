@@ -1,5 +1,6 @@
 'use strict';
 
-app.controller('MainController', function ($scope, $http) {
-    
-});
+app.controller('MainController', ['$scope', '$http', 'identity', 
+      function ($scope, $http, identity) {
+          
+      }]);

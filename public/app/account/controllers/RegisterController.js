@@ -6,6 +6,7 @@ app.controller('RegisterController', ['$scope', '$location', 'identity', 'auth',
 
 	    $scope.signup = function (user) {
 	    	auth.signup(user);
+            //identity.setCurrentUser(user);
 	    	$location.path('/');
 	    };
 	}]);

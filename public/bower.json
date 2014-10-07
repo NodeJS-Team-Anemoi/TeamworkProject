@@ -20,6 +20,7 @@
     "angular-resource": "~1.2.25",
     "angular-sanitize": "~1.2.25",
     "bootstrap": "~3.2.0",
-    "toastr": "~2.0.3"
+    "toastr": "~2.0.3",
+    "angular-cookies": "~1.2.26"
   }
 }

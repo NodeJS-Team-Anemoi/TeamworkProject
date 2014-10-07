@@ -1,57 +1,59 @@
 'use strict';
 
-app.factory('auth', function($http, $q, identity, UsersResource) {
+app.factory('auth', ['$http', '$q', 'identity', 'UsersResource', function($http, $q, identity, UsersResource) {
     return {
         signup: function(user) {
             var deferred = $q.defer();
+            
+            $http.post('/auth/signup', 
+                'username=' + user.username + '&password=' + user.password + '&address=' + user.address + '&email=' + user.email, 
+                { headers: {'Content-Type': 'application/x-www-form-urlencoded'} })
+                .success(function(response) {
+                    identity.setCurrentUser(response.user);
+                    deferred.resolve(true);
+                });;
 
-            var user = new UsersResource(user);
-            user.$save().then(function() {
-                identity.currentUser = user;
-                deferred.resolve();
-            }, function(response) {
-                deferred.reject(response);
-            });
+//            var user = new UsersResource(user);
+//            user.$save().then(function() {
+//                identity.setCurrentUser(user);
+//                deferred.resolve();
+//            }, function(response) {
+//                deferred.reject(response);
+//            });
 
             return deferred.promise;
         },
         update: function(user) {
             var deferred = $q.defer();
 
-            var updatedUser = new UsersResource(user);
-            updatedUser._id = identity.currentUser._id;
-            updatedUser.$update().then(function() {
-                identity.currentUser.firstName = updatedUser.firstName;
-                identity.currentUser.lastName = updatedUser.lastName;
-                deferred.resolve();
-            }, function(response) {
-                deferred.reject(response);
-            });
+//            var updatedUser = new UsersResource(user);
+//            updatedUser._id = identity.currentUser._id;
+//            updatedUser.$update().then(function() {
+//                identity.currentUser.firstName = updatedUser.firstName;
+//                identity.currentUser.lastName = updatedUser.lastName;
+//                deferred.resolve();
+//            }, function(response) {
+//                deferred.reject(response);
+//            });
 
             return deferred.promise;
         },
         login: function(user){
             var deferred = $q.defer();
-
-            $http.post('/auth/login', user).success(function(response) {
-                if (response.success) {
-                    var user = new UsersResource();
-                    angular.extend(user, response.user);
-                    identity.currentUser = user;
+            $http.post('/auth/login', 'username=' + user.username + '&password=' + user.password, 
+                { headers: {'Content-Type': 'application/x-www-form-urlencoded'} })
+                .success(function(response) {
+                    identity.setCurrentUser(response.user);
                     deferred.resolve(true);
-                }
-                else {
-                    deferred.resolve(false);
-                }
-            });
+                });
 
             return deferred.promise;
         },
         logout: function() {
             var deferred = $q.defer();
 
-            $http.post('/auth/logout').success(function() {
-                identity.currentUser = undefined;
+            $http.get('/auth/logout').success(function() {
+                identity.setCurrentUser(undefined);
                 deferred.resolve();
             })
 
@@ -74,4 +76,4 @@ app.factory('auth', function($http, $q, identity, UsersResource) {
             }
         }
     }
-})
+}]);
