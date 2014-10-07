@@ -3,7 +3,7 @@ block main-content
     header.nav.navbar-inverse.navbar-fixed-top
         .container
             .navbar-header
-                a.navbar-brand(href="#/") Bookstore Anemoi
+                a.navbar-brand(href="#/") Bookstore
             .navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li
@@ -14,7 +14,7 @@ block main-content
                         a(href="#/books") Latest books
                     li
                         a(href="#/search") Search
-                div(ng-include="app/account/partials/login")
+                div(ng-include="'partials/account/login'")
     section
         div(ng-view)
     footer.text-center(ng-cloak)

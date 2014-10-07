@@ -1,5 +1,11 @@
 'use strict';
 
-app.controller('RegisterController', function($scope, $location, identity) {
-    $scope.identity = identity;
-})
+app.controller('RegisterController', ['$scope', '$location', 'identity', 'auth', 
+	function($scope, $location, identity, auth) {
+	    $scope.identity = identity;
+
+	    $scope.signup = function (user) {
+	    	auth.signup(user);
+	    	$location.path('/');
+	    };
+	}]);
