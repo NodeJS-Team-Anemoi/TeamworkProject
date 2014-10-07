@@ -50,6 +50,7 @@ var administration = require('./routes/api/administration');
 var chat = require('./routes/api/chat');
 var order = require('./routes/api/orders');
 var shoppingCart = require('./routes/api/shoppingCart');
+var products = require('./routes/api/products');
 
 app.use('/', index);
 app.use('/auth', auth);
@@ -58,6 +59,7 @@ app.use('/admin', administration);
 //app.use('/chat', chat);
 app.use('/order', order);
 app.use('/shoppingCart', shoppingCart);
+app.use('/products', products);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
