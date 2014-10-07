@@ -20,5 +20,12 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/profile', {
             templateUrl: '/partials/account/profile',
             controller: 'ProfileController'
+        })
+        .when('/admin', {
+            templateUrl: '/partials/admin/admin-panel'
+        })
+        .when('/admin/add-book', {
+            templateUrl: '/partials/admin/add-book',
+            controller: 'AddBookController'
         });
 });
