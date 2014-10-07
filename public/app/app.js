@@ -27,5 +27,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/admin/add-book', {
             templateUrl: '/partials/admin/add-book',
             controller: 'AddBookController'
+        })
+        .when('/my-orders', {
+            templateUrl: 'partials/orders/my-orders',
+            controller: 'MyOrdersController'
         });
 });
