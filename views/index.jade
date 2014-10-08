@@ -14,6 +14,8 @@ block main-content
                         a(href="#/books") Latest books
                     li
                         a(href="#/search") Search
+                    li
+                        a(href="#/admin", ng-show="identity.isAdmin()") Admin Panel
                 div(ng-include="'partials/account/login'")
     section
         div(ng-view)

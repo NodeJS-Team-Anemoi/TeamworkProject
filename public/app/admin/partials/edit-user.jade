@@ -1,0 +1,24 @@
+.container
+    .well
+        form.form-horizontal(name="editUserForm")
+            fieldset
+                legend Edit User
+                .form-group
+                    label.col-md-2.control-label(for="username") Username
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Username", ng-model="user.local.username", required)
+                .form-group
+                    label.col-md-2.control-label(for="email") Email
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Email",ng-model="user.local.email", required)
+                .form-group
+                    label.col-md-2.control-label(for="role") Role
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Role", ng-model="user.local.role", required)
+                .form-group
+                    label.col-md-2.control-label(for="address") Address
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Address", ng-model="user.local.address", required)
+                .pull-right
+                    button.btn.btn-primary(ng-click="editUser(user)", ng-disabled="editUserForm.$invalid") Save
+                    a.btn.btn-primary(href="#/") Cancel

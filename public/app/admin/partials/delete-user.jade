@@ -1,0 +1,7 @@
+.container
+    .well
+        p Are you sure you want to delete {{user.local.username}}?
+        .pull-right
+            button.btn.btn-primary(ng-click="deleteUser(book)") DELETE
+            a.btn.btn-primary(href="#/admin/users") Cancel
+

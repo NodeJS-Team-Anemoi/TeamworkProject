@@ -1,0 +1,21 @@
+.container
+    .well4
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th Username
+                    th Email
+                    th Role
+                    th Address
+                    th Edit User
+                    th Delete User
+            tbody
+                tr(ng-repeat='user in users')
+                    td {{user.local.username}}
+                    td {{user.local.email}}
+                    td {{user.local.role}}
+                    td {{user.local.address}}
+                    td
+                        a(href="#/admin/users/edit/{{user._id}}") Edit
+                    td
+                        a(href="#/admin/users/delete/{{user._id}}") DELETE
