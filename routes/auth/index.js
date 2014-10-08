@@ -39,11 +39,6 @@ module.exports = function (passport) {
         })(req, res, next);
     });
 
-    //    router.post('/signup', passport.authenticate('local-signup', {
-    //        successRedirect: '/',
-    //        failureRedirect: '#/register'
-    //    }));
-
     router.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');

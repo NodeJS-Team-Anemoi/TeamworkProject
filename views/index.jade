@@ -19,6 +19,7 @@ block main-content
                 div(ng-include="'partials/account/login'")
     section
         div(ng-view)
+    div#chatbox.panel.panel-primary(ng-include="'partials/chat/chat'", ng-controller="ChatController")
     footer.text-center(ng-cloak)
         a(href="https://github.com/NodeJS-Team-Anemoi/TeamworkProject", target="_blank")
             | &copy; Team Anemoi - 2014

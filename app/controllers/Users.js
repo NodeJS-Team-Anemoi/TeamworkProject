@@ -25,6 +25,7 @@ module.exports = {
                 res.send(error);
             }
             
+            //Add validation here
             user.local.username = req.body.username;
             user.local.password = user.generateHash(req.body.password)
             user.local.email = req.body.email;

@@ -11,30 +11,14 @@ app.factory('auth', ['$http', '$q', 'identity', 'UsersResource', function($http,
                 .success(function(response) {
                     identity.setCurrentUser(response.user);
                     deferred.resolve(true);
-                });;
-
-//            var user = new UsersResource(user);
-//            user.$save().then(function() {
-//                identity.setCurrentUser(user);
-//                deferred.resolve();
-//            }, function(response) {
-//                deferred.reject(response);
-//            });
+                });
 
             return deferred.promise;
         },
         update: function(user) {
             var deferred = $q.defer();
 
-//            var updatedUser = new UsersResource(user);
-//            updatedUser._id = identity.currentUser._id;
-//            updatedUser.$update().then(function() {
-//                identity.currentUser.firstName = updatedUser.firstName;
-//                identity.currentUser.lastName = updatedUser.lastName;
-//                deferred.resolve();
-//            }, function(response) {
-//                deferred.reject(response);
-//            });
+            UsersResource.update(user);
 
             return deferred.promise;
         },
