@@ -7,14 +7,15 @@ app.controller('EditUserController', ['$scope', '$location', '$routeParams', 'au
         function getUser(){
             userResource.getUser($routeParams.id)
                 .then(function(user) {
-                    $scope.user = user;
+                    $scope.currentUser = user;
                 }, function(err){
                     console.log(err);
                 })
         }
 
-        $scope.editUser = function () {
-            userResource.updateUser($routeParams.id)
+        $scope.editUser = function (user) {
+            console.log(user);
+            userResource.updateUser($routeParams.id, user)
                 .then(function () {
                     $location.path('/admin');
                 });

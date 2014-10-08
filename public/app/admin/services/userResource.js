@@ -28,9 +28,9 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        updateUser: function(id){
+        updateUser: function(id, user){
             var deferred = $q.defer();
-            $http.post(routeUrl + '/' + id)
+            $http.put(routeUrl + '/' + id, user)
                 .success(function (user) {
                     deferred.resolve(user);
                 })
