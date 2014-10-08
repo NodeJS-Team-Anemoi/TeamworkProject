@@ -53,7 +53,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/delete-user',
             controller: 'DeleteUserController'
         })
-        .when('/my-orders', {
+        .when('/my-orders/:id', {
             templateUrl: 'partials/orders/my-orders',
             controller: 'MyOrdersController'
         })
