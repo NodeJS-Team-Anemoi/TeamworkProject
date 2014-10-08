@@ -9,7 +9,7 @@ router.route('/')
 
 router.route('/:id')
     .get(auth.isAuthorized, UsersController.getById)
-    .post(auth.isAuthorized, UsersController.update)
+    .put(auth.isAuthorized, UsersController.update)
     .delete(auth.isAuthorized, UsersController.delete);
 
 module.exports = router;

@@ -15,6 +15,13 @@ app.controller('ChatController', ['$scope', 'identity',
             //            sender: identity.getCurrentUser().local.username
             //        }); 
 
-            socket.emit('chat message', message);
+            socket.emit('chat message', {
+                message: message,
+                sender: identity.getCurrentUser()
+            });
+            
+            socket.on('message received', function(messageData) {
+                console.log('Message received on server: ', messageData);
+            })
         };
 }]);

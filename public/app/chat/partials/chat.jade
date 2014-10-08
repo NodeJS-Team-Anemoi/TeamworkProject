@@ -1,11 +1,14 @@
-div
-    form(method="POST", action="")
+div.panel-heading
+    div.panel-title
+        | Chat
+div.panel-body
+    form#message(method="POST", action="")
         input(type="text", ng-model="message")
-        button(ng-click="sendMessage(message)")
+        button.btn.btn-danger(ng-click="sendMessage(message)")
             | Send
-div
-    ul
-        li(ng-repeat="message in messages")
-            span
-                | From: {{message.sender}} - Message: {{message.content}}
+    div
+        ul
+            li(ng-repeat="message in messages")
+                span
+                    | From: {{message.sender}} - Message: {{message.content}}
     

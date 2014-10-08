@@ -1,3 +1,26 @@
 body {
     padding-top: 70px;
 }
+
+#chatbox {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    width: 400px;
+    height: 350px;
+}
+
+#chatbox .panel-body {
+    padding-bottom: 30px;
+    overflow-y: auto;
+}
+
+#message {
+    position: absolute;
+    bottom: 0;
+}
+
+#message input {
+    width: 315px;
+    margin-right: 5px;
+}
