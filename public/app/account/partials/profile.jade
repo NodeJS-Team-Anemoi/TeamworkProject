@@ -1,4 +1,25 @@
 .container
     .jumbotron
         h1
-            | Hello I am {{currentUser}}
+            | Hello I am {{currentUser.local.username}}
+
+.container
+    .well
+        form.form-horizontal(name="profile")
+            fieldset
+                legend Update your profile
+                .form-group
+                    label.col-md-2.control-label(for="username") Username
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentUser.local.username}}", ng-model="user.username", required)
+                .form-group
+                    label.col-md-2.control-label(for="email") Email
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentUser.local.email}}", ng-model="user.email", required)
+                .form-group
+                    label.col-md-2.control-label(for="address") Address
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentUser.local.address}}", ng-model="user.address", required)
+                .pull-right
+                    button.btn.btn-primary(ng-click="updateProfile(user)", ng-disabled="profile.$invalid") Update
+                    a.btn.btn-primary(href="#/") Cancel
