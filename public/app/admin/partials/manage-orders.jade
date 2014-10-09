@@ -1,0 +1,41 @@
+.container
+    .well4
+        .row
+            .col-md-2
+                span Sort by:
+                select(ng-model="sortBy")
+                    option(value="userName", selected="selected") Username
+                    option(value="date") Date
+                    option(value="shippingAddress") Shipping Address
+                    option(value="paymentMethod") Payment Method
+            .col-md-2
+                button.btn.btn-info(ng-click="sortPage(page, sortBy)") Sort
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th Username
+                    th Date
+                    th Shipping Address
+                    th Payment Method
+                    th Details
+                    th Edit Order
+                    th Delete Order
+            tbody
+                tr(ng-repeat="order in orders")
+                    td {{order.userName}}
+                    td {{order.date}}
+                    td {{order.shippingAddress}}
+                    td {{order.paymentMethod}}
+                    td
+                        a(href="#/admin/orders/details/{{order._id}}") Details
+                    td
+                        a(href="#/admin/orders/edit/{{order._id}}") Edit
+                    td
+                        a(href="#/admin/orders/delete/{{order._id}}") DELETE
+        .row
+            .col-md-1.col-lg-offset-9
+                button.btn.btn-info(ng-click="previousPage()") <<
+            .col-md-1
+                input.form-control(type="text", value="{{page}}")
+            .col-md-1
+                button.btn.btn-info(ng-click="nextPage()") >>

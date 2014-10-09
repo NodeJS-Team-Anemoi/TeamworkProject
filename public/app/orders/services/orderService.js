@@ -28,9 +28,9 @@ app.factory('orderService', ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        updateOrder: function(id){
+        updateOrder: function(id, order){
             var deferred = $q.defer();
-            $http.post(routeUrl + '/' + id)
+            $http.put(routeUrl + '/' + id, order)
                 .success(function (order) {
                     deferred.resolve(order);
                 })
@@ -51,6 +51,18 @@ app.factory('orderService', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        getPagedOrders: function (page, sortBy) {
+        var deferred = $q.defer();
+        $http.get(routeUrl + '/' + page + '/' + sortBy)
+            .success(function (orders) {
+                deferred.resolve(orders);
+            })
+            .error(function (error) {
+                deferred.reject(error);
+            });
+
+        return deferred.promise;
         }
     }
 }]);

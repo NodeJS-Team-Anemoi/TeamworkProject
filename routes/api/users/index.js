@@ -13,6 +13,6 @@ router.route('/:id')
     .delete(auth.isAuthorized, UsersController.delete);
 
 router.route('/:page/:sortBy')
-    .get(UsersController.getSortedAndPaged);
+    .get(auth.isAuthorized, UsersController.getSortedAndPaged);
 
 module.exports = router;
