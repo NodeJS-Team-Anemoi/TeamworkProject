@@ -69,9 +69,9 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/order-details',
             controller: 'OrderDetailsController'
         })
-        .when('/my-orders/:id', {
+        .when('/orders/:id', {
             templateUrl: 'partials/orders/my-orders',
-            controller: 'MyOrdersController'
+            controller: 'OrdersController'
         })
         .when('/chat', {
             templateUrl: 'partials/chat/chat',

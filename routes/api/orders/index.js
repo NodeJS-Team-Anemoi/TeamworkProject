@@ -16,4 +16,7 @@ router.route('/:id')
 router.route('/:page/:sortBy')
     .get(OrdersController.getSortedAndPaged);
 
+router.route('/user/:id')
+    .get(OrdersController.getByUserId);
+
 module.exports = router;

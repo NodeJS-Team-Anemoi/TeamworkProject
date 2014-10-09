@@ -93,5 +93,14 @@ module.exports = {
 
         res.json(orders);
     })
+    },
+    getByUserId: function (req, res) {
+        Order.find({'userId': req.params.id }, function (error, orders) {
+            if (error) {
+                res.send(error);
+            }
+
+            res.json(orders);
+        });
     }
 }
