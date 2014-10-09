@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('OrdersManagementController', ['$scope', '$location', 'auth', 'orderService',
-    function OrdersManagementController($scope, $location, auth, orderService) {
+app.controller('OrdersManagementController', ['$scope', '$location', 'auth', 'ordersResource',
+    function OrdersManagementController($scope, $location, auth, ordersResource) {
 //        if (auth.isAuthorizedForRole('Admin')) {
         $scope.page = 0;
         $scope.sortBy = 'userName';
@@ -11,7 +11,7 @@ app.controller('OrdersManagementController', ['$scope', '$location', 'auth', 'or
 
         getOrders($scope.page, $scope.sortBy);
         function getOrders(page, sortBy) {
-            orderService.getPagedOrders(page, sortBy)
+            ordersResource.getPagedOrders(page, sortBy)
                 .then(function (orders) {
                     $scope.orders = orders;
                 }, function (err) {

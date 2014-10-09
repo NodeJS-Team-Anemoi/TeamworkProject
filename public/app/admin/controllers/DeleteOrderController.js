@@ -1,11 +1,11 @@
 'use strict';
 
-app.controller('DeleteOrderController', ['$scope', '$location', '$routeParams', 'auth', 'orderService',
-    function DeleteUserController($scope, $location, $routeParams, auth, orderService) {
+app.controller('DeleteOrderController', ['$scope', '$location', '$routeParams', 'auth', 'ordersResource',
+    function DeleteUserController($scope, $location, $routeParams, auth, ordersResource) {
 //        if (auth.isAuthorizedForRole('Admin')) {
         getOrder();
         function getOrder(){
-            orderService.getOrder($routeParams.id)
+            ordersResource.getOrder($routeParams.id)
                 .then(function(order) {
                     $scope.order = order;
                 }, function(err){
@@ -14,7 +14,7 @@ app.controller('DeleteOrderController', ['$scope', '$location', '$routeParams', 
         }
 
         $scope.deleteOrder = function () {
-            orderService.deleteOrder($routeParams.id)
+            ordersResource.deleteOrder($routeParams.id)
                 .then(function () {
                     $location.path('/admin/orders');
                 });

@@ -65,7 +65,7 @@ app.factory('ordersResource', ['$http', '$q',
 
                 return deferred.promise;
             },
-            getOrderByUserId: function (id) {
+            getOrdersByUserId: function (id) {
                 var deferred = $q.defer();
                 $http.get(routeUrl + '/user/' + id)
                     .success(function (orders) {

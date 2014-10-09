@@ -1,11 +1,11 @@
 'use strict';
 
-app.controller('EditOrderController', ['$scope', '$location', '$routeParams', 'auth', 'orderService',
-    function EditOrderController($scope, $location, $routeParams, auth, orderService) {
+app.controller('EditOrderController', ['$scope', '$location', '$routeParams', 'auth', 'ordersResource',
+    function EditOrderController($scope, $location, $routeParams, auth, ordersResource) {
 //        if (auth.isAuthorizedForRole('Admin')) {
         getOrder();
         function getOrder(){
-            orderService.getOrder($routeParams.id)
+            ordersResource.getOrder($routeParams.id)
                 .then(function(order) {
                     $scope.currentOrder = order;
                 }, function(err){
@@ -15,7 +15,7 @@ app.controller('EditOrderController', ['$scope', '$location', '$routeParams', 'a
 
         $scope.editOrder = function (order) {
             console.log(order);
-            orderService.updateOrder($routeParams.id, order)
+            ordersResource.updateOrder($routeParams.id, order)
                 .then(function () {
                     $location.path('/admin');
                 });

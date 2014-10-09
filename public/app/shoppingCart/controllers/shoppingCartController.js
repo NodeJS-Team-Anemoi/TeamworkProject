@@ -1,9 +1,11 @@
 'use strict';
 
-app.controller('ShoppingCartController', ['$scope', 'orderService','identity', function ($scope, orderService, identity) {
-    var currentUserId = identity.getCurrentUser()._id;
+app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity', 
+    function ($scope, ordersResource, identity) {
+        var currentUserId = identity.getCurrentUser()._id;
 
-    orderService.getOrderByUserId().then(function (cart) {
-        $scope.cart = cart;
-    });
-}]);
+        ordersResource.getOrdersByUserId()
+            .then(function (orders) {
+                $scope.orders = orders;
+            });
+    }]);
