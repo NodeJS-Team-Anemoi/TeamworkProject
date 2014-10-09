@@ -2,7 +2,7 @@
 
 app.factory('bookResource', ['$http', '$q', function ($http, $q) {
     var baseUrl = '/products';
-    
+
     return {
         create: function (book) {
             var deferred = $q.defer();

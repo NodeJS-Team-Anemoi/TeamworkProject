@@ -51,6 +51,18 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        getPagedUsers: function (page, sortBy) {
+            var deferred = $q.defer();
+            $http.get(routeUrl + '/' + page + '/' + sortBy)
+                .success(function (users) {
+                    deferred.resolve(users);
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);
