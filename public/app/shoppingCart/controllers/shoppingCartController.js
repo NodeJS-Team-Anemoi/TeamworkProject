@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller('ShoppingCartController', ['$scope', 'shoppingCartService','identity', function ($scope, shoppingCartService, identity) {
+app.controller('ShoppingCartController', ['$scope', 'orderService','identity', function ($scope, orderService, identity) {
     var currentUserId = identity.getCurrentUser()._id;
 
-    bookResource.getAll().then(function (carts) {
+    orderService.getAll().then(function (carts) {
 //        $scope.cart = carts.where(x => x.userId == currentUserId);
     });
 }]);
