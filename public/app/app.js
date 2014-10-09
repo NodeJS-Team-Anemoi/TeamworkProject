@@ -32,14 +32,17 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/profile', {
             templateUrl: '/partials/account/profile',
-            controller: 'ProfileController'
+            controller: 'ProfileController',
+            resolve: routeUserChecks.authenticated
         })
         .when('/admin', {
-            templateUrl: '/partials/admin/admin-panel'
+            templateUrl: '/partials/admin/admin-panel',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/add-book', {
             templateUrl: '/partials/admin/add-book',
-            controller: 'AddBookController'
+            controller: 'AddBookController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/edit-book/:id', {
             templateUrl: '/partials/admin/edit-book',
@@ -51,43 +54,59 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/admin/users', {
             templateUrl: '/partials/admin/manage-users',
-            controller: 'UsersController'
+            controller: 'UsersController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/users/edit/:id', {
             templateUrl: '/partials/admin/edit-user',
-            controller: 'EditUserController'
+            controller: 'EditUserController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/users/delete/:id', {
             templateUrl: '/partials/admin/delete-user',
-            controller: 'DeleteUserController'
+            controller: 'DeleteUserController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/orders', {
             templateUrl: '/partials/admin/manage-orders',
-            controller: 'OrdersManagementController'
+            controller: 'OrdersManagementController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/orders/edit/:id', {
             templateUrl: '/partials/admin/edit-order',
-            controller: 'EditOrderController'
+            controller: 'EditOrderController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/orders/delete/:id', {
             templateUrl: '/partials/admin/delete-order',
-            controller: 'DeleteOrderController'
+            controller: 'DeleteOrderController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/orders/details/:id', {
             templateUrl: '/partials/admin/order-details',
-            controller: 'OrderDetailsController'
+            controller: 'OrderDetailsController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/orders/:id', {
             templateUrl: 'partials/orders/my-orders',
-            controller: 'OrdersController'
+            controller: 'OrdersController',
+            resolve: routeUserChecks.authenticated
         })
         .when('/chat', {
             templateUrl: 'partials/chat/chat',
-            controller: 'ChatController'
+            controller: 'ChatController',
+            resolve: routeUserChecks.authenticated
         })
         .when('/shoppingCart', {
             templateUrl: 'partials/shoppingCart/shoppingCart',
-            controller: 'ShoppingCartController'
+            controller: 'ShoppingCartController',
+            resolve: routeUserChecks.authenticated
+        })
+        .when('/unauthorized', {
+            templateUrl: 'partials/common/unauthorized'
+        })
+        .when('/about', {
+            templateUrl: 'partials/about/about'
         });
 });
 
