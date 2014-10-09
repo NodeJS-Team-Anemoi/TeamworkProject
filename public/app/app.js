@@ -41,6 +41,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/add-book',
             controller: 'AddBookController'
         })
+        .when('/admin/edit-book/:id', {
+            templateUrl: '/partials/admin/edit-book',
+            controller: 'EditBookController'
+        })
         .when('/admin/add-user', {
             templateUrl: '/partials/admin/add-user',
             controller: 'AddUserController'
