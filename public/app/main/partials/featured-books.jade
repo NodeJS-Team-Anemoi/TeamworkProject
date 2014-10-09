@@ -1,2 +1,2 @@
 div.list-group(ng-controller="BooksController")
-    book-small(ng-repeat="book in featuredBooks | orderBy: '-rating' | limitTo: 10")
+    book-small(ng-repeat="book in books | orderBy: '-rating' | limitTo: 10")

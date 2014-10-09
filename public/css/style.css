@@ -51,3 +51,8 @@ body {
 .clear {
     clear: both;
 }
+
+.home-panel {
+    overflow-y: auto;
+    height: 350px;
+}
