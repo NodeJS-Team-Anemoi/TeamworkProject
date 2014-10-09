@@ -65,8 +65,8 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/admin/orders', {
             templateUrl: '/partials/admin/manage-orders',
-            controller: 'OrdersManagementController'
-            //resolve: routeUserChecks.adminRole
+            controller: 'OrdersManagementController',
+            resolve: routeUserChecks.adminRole
         })
         .when('/admin/orders/edit/:id', {
             templateUrl: '/partials/admin/edit-order',
