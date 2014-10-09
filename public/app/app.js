@@ -65,6 +65,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/delete-order',
             controller: 'DeleteOrderController'
         })
+        .when('/admin/orders/details/:id', {
+            templateUrl: '/partials/admin/order-details',
+            controller: 'OrderDetailsController'
+        })
         .when('/orders/:id', {
             templateUrl: 'partials/orders/my-orders',
             controller: 'OrdersController'
@@ -82,7 +86,7 @@ app.config(function ($routeProvider, $locationProvider) {
 app.run(function($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function(ev, current, previous, rejection) {
         if (rejection === 'not authorized') {
-            $location.path('/');
+            $location.path('/unauthorized');
         }
     })
 });
