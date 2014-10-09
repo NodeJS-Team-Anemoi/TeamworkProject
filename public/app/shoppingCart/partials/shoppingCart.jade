@@ -6,21 +6,19 @@
 
 .container
     .well4
-        .row(ng-repeat="order in readyOrders")
+        .row
             .col-md-3
                 span User:
-                strong {{order.userName}}
+                strong {{currentOrder.userName}}
             .col-md-3
                 span Date:
-                strong {{order.date | date : 'medium'}}
+                strong {{currentOrder.date | date : 'medium'}}
             .col-md-3
                 span Shipping Address:
-                strong {{order.shippingAddress}}
+                strong {{currentOrder.shippingAddress}}
             .col-md-3
                 span Payment method:
-                strong {{order.paymentMethod}}
-
-        button.btn.btn-primary(ng-click="shipOrder(order._id)") Ship order
+                strong {{currentOrder.paymentMethod}}
 
         table.table.table-striped.table-hover
             thead
@@ -31,9 +29,11 @@
                     th isbn
                     th Language
             tbody
-                tr(ng-repeat="product in order.products")
+                tr(ng-repeat="product in currentOrder.products")
                     td {{$index + 1}}
-                    td {{order.products[$index].title}}
-                    td {{order.products[$index].price}}
-                    td {{order.products[$index].isbn}}
-                    td {{order.products[$index].language}}
+                    td {{currentOrder.products[$index].title}}
+                    td {{currentOrder.products[$index].price}}
+                    td {{currentOrder.products[$index].isbn}}
+                    td {{currentOrder.products[$index].language}}
+
+    button.btn.btn-primary(ng-click="checkOut()") Check out

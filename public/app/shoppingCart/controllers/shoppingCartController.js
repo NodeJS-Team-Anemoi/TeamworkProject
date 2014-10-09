@@ -14,7 +14,7 @@ app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity',
                 $scope.readyOrders = orders;
             });
 
-        $scope.shipOrder = function(){
+        $scope.checkOut = function(){
             // open a new window to ask for credit card and shipping date
         }
     }]);
