@@ -1,6 +1,2 @@
-div(ng-repeat="book in books | orderBy: '-year' | limitTo: 10")
-    .row
-        .col-md-3
-            | {{ book.year }}
-        .col-md-9
-            a(href="#/books/{{ book._id }}") {{ book.title }}
+div.list-group(ng-controller="BooksController")
+    book-small(ng-repeat="book in books | orderBy: '-rating' | limitTo: 10")

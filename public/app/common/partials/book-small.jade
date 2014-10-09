@@ -1,0 +1,7 @@
+a.list-group-item(href="#/books/{{ book._id }}") 
+    img.pull-left.book-small-img(ng-src="{{ book.image }}", width=60, height=60)
+    h4.list-group-item-heading 
+        | {{ book.title }}
+    p.list-group-item-text
+        | {{ book.annotation }}
+    .clear
