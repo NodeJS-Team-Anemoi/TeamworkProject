@@ -3,7 +3,7 @@ body {
 }
 
 #chatbox {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 50px;
     width: 400px;
@@ -13,7 +13,7 @@ body {
 }
 
 #chatbox-mini {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 50px;
 }
