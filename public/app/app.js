@@ -65,6 +65,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/delete-order',
             controller: 'DeleteOrderController'
         })
+        .when('/admin/orders/details/:id', {
+            templateUrl: '/partials/admin/order-details',
+            controller: 'OrderDetailsController'
+        })
         .when('/my-orders/:id', {
             templateUrl: 'partials/orders/my-orders',
             controller: 'MyOrdersController'
