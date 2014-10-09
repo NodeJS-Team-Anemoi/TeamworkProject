@@ -4,6 +4,8 @@ app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity',
     function ($scope, ordersResource, identity) {
         var currentUserId = identity.getCurrentUser()._id;
 
+        $scope.currentOrder = ""; // TODO:
+
         ordersResource.getOrdersByUserId(currentUserId)
             .then(function (orders) {
                 $scope.orders = orders;

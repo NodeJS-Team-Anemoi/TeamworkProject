@@ -1,9 +1,3 @@
-//.col-md-6
-//    .panel.panel-primary
-//        .panel-heading.text-center The books you have chosen
-//        .panel-body.list-group(ng-controller="ShoppingCartController")
-//            book-small(ng-repeat="product in cart.products | orderBy: 'date'")
-
 .container
     .well4
         .row
@@ -31,9 +25,9 @@
             tbody
                 tr(ng-repeat="product in currentOrder.products")
                     td {{$index + 1}}
-                    td {{currentOrder.products[$index].title}}
-                    td {{currentOrder.products[$index].price}}
-                    td {{currentOrder.products[$index].isbn}}
-                    td {{currentOrder.products[$index].language}}
+                    td {{product.title}}
+                    td {{product.price}}
+                    td {{product.isbn}}
+                    td {{product.language}}
 
     button.btn.btn-primary(ng-click="checkOut()") Check out
