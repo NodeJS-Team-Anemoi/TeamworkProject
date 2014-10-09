@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "./public/bower install"
+    "postinstall": "cd public && bower install"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
