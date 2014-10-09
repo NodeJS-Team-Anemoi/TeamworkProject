@@ -57,5 +57,19 @@ module.exports = {
             
             res.end();
         });
+    },
+    getSortedAndPaged: function (req, res) {
+
+        var perPage = 5,
+            page = Math.max(0, parseInt(req.params.page)),
+            sortBy = 'local.' + req.params.sortBy;
+
+        User.find({'local.deleted': false}).sort(sortBy).skip(perPage * page).limit(perPage).exec(function (error, users) {
+            if (error) {
+                res.send(error);
+            }
+
+            res.json(users);
+        })
     }
 }
