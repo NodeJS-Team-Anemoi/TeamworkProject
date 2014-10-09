@@ -6,19 +6,19 @@
                 .form-group
                     label.col-md-2.control-label(for="username") Username
                     .col-md-10
-                        input.form-control(type="text", placeholder="{{currentUser.local.username}}", ng-model="user.username", required)
+                        input.form-control(type="text", placeholder="{{currentUser.local.username}}", ng-model="user.username")
                 .form-group
                     label.col-md-2.control-label(for="email") Email
                     .col-md-10
-                        input.form-control(type="text", placeholder="{{currentUser.local.email}}", ng-model="user.email", required)
+                        input.form-control(type="text", placeholder="{{currentUser.local.email}}", ng-model="user.email")
                 .form-group
                     label.col-md-2.control-label(for="role") Role
                     .col-md-10
-                        input.form-control(type="text", placeholder="{{currentUser.local.role}}", ng-model="user.role", required)
+                        input.form-control(type="text", placeholder="{{currentUser.local.role}}", ng-model="user.role")
                 .form-group
                     label.col-md-2.control-label(for="address") Address
                     .col-md-10
-                        input.form-control(type="text", placeholder="{{currentUser.local.address}}", ng-model="user.address", required)
+                        input.form-control(type="text", placeholder="{{currentUser.local.address}}", ng-model="user.address")
                 .pull-right
                     button.btn.btn-primary(ng-click="editUser(user)", ng-disabled="editUserForm.$invalid") Save
                     a.btn.btn-primary(href="#/") Cancel

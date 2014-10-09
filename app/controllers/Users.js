@@ -24,13 +24,26 @@ module.exports = {
             if (error) {
                 res.send(error);
             }
-            
-            //Add validation here
-            user.local.username = req.body.username;
-            user.local.password = user.generateHash(req.body.password)
-            user.local.email = req.body.email;
-            user.local.address = req.body.address;
-            user.local.role = req.body.role;
+
+            if (req.body.username && req.body.username != user.local.username){
+                user.local.username =  req.body.username;
+            }
+
+            if (req.body.email && req.body.email != user.local.email){
+                user.local.email =  req.body.email;
+            }
+
+            if (req.body.address && req.body.address != user.local.address){
+                user.local.address =  req.body.address;
+            }
+
+            if (req.body.address && req.body.address != user.local.address){
+                user.local.address =  req.body.address;
+            }
+
+            if (req.body.role && req.body.role != user.local.role){
+                user.local.role =  req.body.role;
+            }
             
             user.save(function (error) {
                 if(error){
