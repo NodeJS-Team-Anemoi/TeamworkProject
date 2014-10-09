@@ -13,7 +13,7 @@ var app = express();
 // Database setup
 var dbConfig = require('./config/database.js');
 
-mongoose.connect(dbConfig.localDb);
+mongoose.connect(dbConfig.cloudDb);
 
 var db = mongoose.connection;
 
