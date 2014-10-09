@@ -72,6 +72,10 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/chat', {
             templateUrl: 'partials/chat/chat',
             controller: 'ChatController'
+        })
+        .when('/shoppingCart', {
+            templateUrl: 'partials/shoppingCart/shoppingCart',
+            controller: 'ShoppingCartController'
         });
 });
 

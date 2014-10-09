@@ -37,7 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./config/passport')(passport);
 
 app.use(session({
-    secret: 'ninja'
+    secret: 'ninja',
+    saveUninitialized: true,
+    resave: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
