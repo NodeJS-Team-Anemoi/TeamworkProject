@@ -80,6 +80,10 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/shoppingCart', {
             templateUrl: 'partials/shoppingCart/shoppingCart',
             controller: 'ShoppingCartController'
+        })
+        .when('/catalog', {
+            templateUrl: 'partials/catalog/catalog',
+            controller: 'CatalogController'
         });
 });
 
