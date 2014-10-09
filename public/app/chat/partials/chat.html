@@ -1,6 +1,6 @@
 
 <div ng-controller="ChatController">
-  <div id="chatbox" ng-show="expanded" class="panel panel-primary">
+  <div id="chatbox" ng-show="expanded" class="panel panel-danger">
     <div class="panel-heading">
       <div class="panel-title">Chat</div>
       <button ng-click="expanded=false" class="btn btn-default btn-xs pull-right collapse-btn">-</button>
@@ -12,7 +12,7 @@
         <button ng-click="sendMessage(message)" class="btn btn-danger send-btn">Send</button>
       </form>
       <div class="messages">
-        <div ng-repeat="message in messages" class="well"><strong>{{message.sender}}:</strong><span>{{message.content}}</span></div>
+        <div ng-repeat="message in messages" class="well"><strong>{{message.sender}}:</strong><span>{{message.content}}</span></div><a id="bottom"></a>
       </div>
     </div>
   </div>

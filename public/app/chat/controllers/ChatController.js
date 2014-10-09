@@ -30,7 +30,7 @@ app.controller('ChatController', ['$scope', 'identity', 'sockets',
             sender: 'Vesko'
         }];
         
-        $scope.expanded = true;
+        $scope.expanded = false;
         
         sockets.on('message received', function (messageData) {
             $scope.messages.push({

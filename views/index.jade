@@ -3,17 +3,13 @@ block main-content
     header.nav.navbar-inverse.navbar-fixed-top
         .container
             .navbar-header
-                a.navbar-brand(href="#/") Bookstore
+                a.navbar-brand(href="#/") Anemoi
             .navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li
-                        a(href="#/") Home
+                        a(href="#/catalog") Books
                     li
-                        a(href="#/categories") Categories
-                    li
-                        a(href="#/books") Latest books
-                    li
-                        a(href="#/search") Search
+                        a(href="#/about") About us
                     li
                         a(href="#/admin", ng-show="identity.isAdmin()") Admin Panel
                 div(ng-include="'partials/account/login'")

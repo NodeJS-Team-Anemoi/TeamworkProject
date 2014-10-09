@@ -21,7 +21,7 @@ app.factory('bookResource', ['$http', '$q', function ($http, $q) {
 
             $http.get(baseUrl)
                 .success(function(books) {
-                deferred.resolve(books);
+                    deferred.resolve(books);
                 })
                 .error(function (error) {
                     deferred.reject(error);
