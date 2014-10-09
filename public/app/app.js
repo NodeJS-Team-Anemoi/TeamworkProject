@@ -16,7 +16,7 @@ app.config(function ($routeProvider, $locationProvider) {
             }
         }
     };
-    
+
     $routeProvider
         .when('/', {
             templateUrl: '/partials/main/home',
@@ -40,6 +40,10 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/admin/add-book', {
             templateUrl: '/partials/admin/add-book',
             controller: 'AddBookController'
+        })
+        .when('/admin/add-user', {
+            templateUrl: '/partials/admin/add-user',
+            controller: 'AddUserController'
         })
         .when('/admin/users', {
             templateUrl: '/partials/admin/manage-users',
