@@ -84,5 +84,25 @@ module.exports = {
 
             res.json(users);
         })
+    },
+    create: function (req, res) {
+        console.log(req.body);
+        var user = new User({
+            local: {
+                username: req.body.username,
+                email: req.body.email,
+                password: user.generateHash(req.body.password),
+                role: req.body.role,
+                address: req.body.address
+            }
+        });
+
+        user.save(function (error) {
+            if(error){
+                res.send(error);
+            }
+        });
+
+        res.end();
     }
 }

@@ -1,0 +1,56 @@
+.container
+    .well
+        form.form-horizontal(name="addBook")
+            fieldset
+                legend Add New Book
+                .form-group
+                    label.col-md-2.control-label(for="title") Title
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.title}}", ng-model="book.title")
+                .form-group
+                    label.col-md-2.control-label(for="price") Price
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.price}}", ng-model="book.price")
+                .form-group
+                    label.col-md-2.control-label(for="publisher") Publisher
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.publisher}}", ng-model="book.publisher")
+                .form-group
+                    label.col-md-2.control-label(for="image") Image
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.image}}", ng-model="book.image")
+                .form-group
+                    label.col-md-2.control-label(for="year") Year
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.year}}", ng-model="book.year")
+                .form-group
+                    label.col-md-2.control-label(for="isbn") ISBN
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.ISBN}}", ng-model="book.isbn")
+                .form-group
+                    label.col-md-2.control-label(for="pages") Pages
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.pages}}", ng-model="book.pages")
+                .form-group
+                    label.col-md-2.control-label(for="language") Language
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.language}}", ng-model="book.language")
+                .form-group
+                    label.col-md-2.control-label(for="countInStock") Count in stock
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.countInStock}}", ng-model="book.countInStock")
+                .form-group
+                    label.col-md-2.control-label(for="annotation") Annotation
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBook.annotation}}", ng-model="book.annotation")
+                .form-group
+                    label.col-md-2.control-label(for="authors") Authors
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBookAuthors}}", ng-model="book.authors")
+                .form-group
+                    label.col-md-2.control-label(for="categories") Categories
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentBookCategories}}", ng-model="book.categories")
+                .pull-right
+                    button.btn.btn-primary(ng-click="editBook(book)") Save
+                    a.btn.btn-primary(href="#/") Cancel

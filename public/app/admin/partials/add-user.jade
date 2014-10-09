@@ -1,0 +1,29 @@
+.container
+    .well
+        form.form-horizontal(name="addUserForm")
+            fieldset
+                legend Create New User
+                .form-group
+                    label.col-md-2.control-label(for="username") Username
+                    .col-md-10
+                        input.form-control(type="text", placeholder="User name", ng-model="user.username", required)
+                .form-group
+                    label.col-md-2.control-label(for="password") Password
+                    .col-md-10
+                        input.form-control(type="password", placeholder="Password", ng-model="user.password", required)
+                .form-group
+                    label.col-md-2.control-label(for="email") Email
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Email", ng-model="user.email", required)
+                .form-group
+                    label.col-md-2.control-label(for="address") Address
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Location address", ng-model="user.address", required)
+                .form-group
+                    label.col-md-2.control-label(for="address") Role
+                    .col-md-10
+                        input.form-control(type="text", placeholder="Location address", ng-model="user.role", required)
+                .pull-right
+                    button.btn.btn-primary(ng-click="createUser(user)", ng-disabled="addUserForm.$invalid") Create
+                    a.btn.btn-primary(href="#/admin") Cancel
+

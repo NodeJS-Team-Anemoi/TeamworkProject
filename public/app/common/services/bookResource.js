@@ -28,6 +28,30 @@ app.factory('bookResource', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        getBook: function (id) {
+            var deferred = $q.defer();
+            $http.get(baseUrl + '/' + id)
+                .success(function (book) {
+                    deferred.resolve(book);
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
+        },
+        updateBook: function (id, book) {
+            var deferred = $q.defer();
+            $http.put(baseUrl + '/' + id, book)
+                .success(function (book) {
+                    deferred.resolve(book);
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);

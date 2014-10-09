@@ -47,7 +47,7 @@ app.use(passport.session());
 // Routes
 var index = require('./routes/index');
 var auth = require('./routes/auth')(passport);
-var users = require('./routes/api/users');
+var users = require('./routes/api/users')(passport);
 var administration = require('./routes/api/administration');
 var chat = require('./routes/api/chat');
 var order = require('./routes/api/orders');

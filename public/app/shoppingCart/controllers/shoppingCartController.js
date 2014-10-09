@@ -4,6 +4,8 @@ app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity',
     function ($scope, ordersResource, identity) {
         var currentUserId = identity.getCurrentUser()._id;
 
+        $scope.currentOrder = ""; // TODO:
+
         ordersResource.getOrdersByUserId(currentUserId)
             .then(function (orders) {
                 $scope.orders = orders;
@@ -14,7 +16,7 @@ app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity',
                 $scope.readyOrders = orders;
             });
 
-        $scope.shipOrder = function(){
+        $scope.checkOut = function(){
             // open a new window to ask for credit card and shipping date
         }
     }]);
