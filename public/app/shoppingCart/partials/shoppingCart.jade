@@ -1,0 +1,2 @@
+div.list-group(ng-controller="ShoppingCartController")
+    book-small(ng-repeat="product in cart.products | orderBy: 'date'")
