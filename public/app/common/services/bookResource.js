@@ -1,11 +1,12 @@
 'use strict';
 
 app.factory('bookResource', ['$http', '$q', function ($http, $q) {
-
+    var baseUrl = '/products';
+    
     return {
         create: function (book) {
             var deferred = $q.defer();
-            $http.post('/products', book)
+            $http.post(baseUrl, book)
                 .success(function () {
                     deferred.resolve();
                 })
@@ -18,7 +19,7 @@ app.factory('bookResource', ['$http', '$q', function ($http, $q) {
         getAll: function() {
             var deferred = $q.defer();
 
-            $http.get('/products')
+            $http.get(baseUrl)
                 .success(function(books) {
                 deferred.resolve(books);
                 })

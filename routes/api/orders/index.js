@@ -4,11 +4,11 @@ var router = express.Router();
 var auth = require('./../../../app/libs/auth');
 var OrdersController = require('./../../../app/controllers/Orders');
 
-router.route('/orders')
+router.route('/')
     .get(OrdersController.getAll)
     .post(OrdersController.create);
 
-router.route('/orders/:id')
+router.route('/:id')
     .get(OrdersController.getById)
     .post(OrdersController.update);
 

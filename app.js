@@ -13,7 +13,7 @@ var app = express();
 // Database setup
 var dbConfig = require('./config/database.js');
 
-mongoose.connect(dbConfig.localDb);
+mongoose.connect(dbConfig.cloudDb);
 
 var db = mongoose.connection;
 
@@ -57,7 +57,7 @@ app.use('/auth', auth);
 app.use('/users', users);
 app.use('/admin', administration);
 //app.use('/chat', chat);
-app.use('/order', order);
+app.use('/orders', order);
 app.use('/shoppingCart', shoppingCart);
 app.use('/products', products);
 
