@@ -1,0 +1,26 @@
+{
+  "name": "Bookstore",
+  "version": "0.0.1",
+  "homepage": "https://github.com/NodeJS-Team-Anemoi/TeamworkProject",
+  "authors": [
+    "Team Anemoi"
+  ],
+  "description": "Online book store",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3.0-rc.3",
+    "angular-route": "~1.2.25",
+    "angular-resource": "~1.2.25",
+    "angular-sanitize": "~1.2.25",
+    "bootstrap": "~3.2.0",
+    "toastr": "~2.0.3",
+    "angular-cookies": "~1.2.26"
+  }
+}
