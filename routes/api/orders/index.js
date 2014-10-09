@@ -10,9 +10,13 @@ router.route('/')
 
 router.route('/:id')
     .get(OrdersController.getById)
-    .put(OrdersController.update);
+    .put(OrdersController.update)
+    .delete(OrdersController.delete);
 
 router.route('/:page/:sortBy')
     .get(OrdersController.getSortedAndPaged);
+
+router.route('/user/:id')
+    .get(OrdersController.getByUserId);
 
 module.exports = router;

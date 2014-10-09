@@ -1,0 +1,6 @@
+.container
+    .well
+        p Are you sure you want to delete {{order.userName}}'s order?
+        .pull-right
+            button.btn.btn-primary(ng-click="deleteOrder()") DELETE
+            a.btn.btn-primary(href="#/admin/orders") Cancel
