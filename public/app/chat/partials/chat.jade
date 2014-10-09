@@ -1,14 +1,22 @@
-div.panel-heading
-    div.panel-title
+div(ng-controller="ChatController")
+    div#chatbox.panel.panel-primary(ng-show="expanded")
+        div.panel-heading
+            div.panel-title
+                | Chat
+            button.btn.btn-default.btn-xs.pull-right.collapse-btn(ng-click="expanded=false")
+                | -
+            .clear
+        div.panel-body
+            form#message(method="POST", action="")
+                input(type="text", ng-model="message", id="messageInput")
+                button.btn.btn-danger.send-btn(ng-click="sendMessage(message)")
+                    | Send
+            div.messages
+                div.well(ng-repeat="message in messages")
+                    strong
+                        | {{message.sender}}:
+                    span
+                        | {{message.content}}
+                a#bottom
+    button#chatbox-mini.btn.btn-default.btn-lg(ng-hide="expanded", ng-click="expanded=true")
         | Chat
-div.panel-body
-    form#message(method="POST", action="")
-        input(type="text", ng-model="message")
-        button.btn.btn-danger(ng-click="sendMessage(message)")
-            | Send
-    div
-        ul
-            li(ng-repeat="message in messages")
-                span
-                    | From: {{message.sender}} - Message: {{message.content}}
-    

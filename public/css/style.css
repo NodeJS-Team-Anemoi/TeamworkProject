@@ -8,11 +8,19 @@ body {
     right: 50px;
     width: 400px;
     height: 350px;
+    margin-bottom: 0px !important;
+}
+
+#chatbox-mini {
+    position: absolute;
+    bottom: 0;
+    right: 50px;
 }
 
 #chatbox .panel-body {
     padding-bottom: 30px;
     overflow-y: auto;
+    height: 250px;
 }
 
 #message {
@@ -21,6 +29,15 @@ body {
 }
 
 #message input {
-    width: 315px;
+    width: 310px;
     margin-right: 5px;
+}
+
+.send-btn {
+    margin: 0 5px 5px 0 !important;
+}
+.collapse-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }

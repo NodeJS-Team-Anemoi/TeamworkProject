@@ -7,7 +7,7 @@ module.exports = function (io) {
         });
 
         socket.on('chat message', function (messageData) {
-            console.log('From: %s - Message: %s', messageData.message, messageData.sender.local.username);
+            console.log('From: %s - Message: %s', messageData.sender.local.username, messageData.content);
             
             io.emit('message received', messageData);
         });
