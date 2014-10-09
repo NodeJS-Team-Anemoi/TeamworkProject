@@ -1,17 +1,22 @@
 'use strict';
 
-var mongoose = require('mongoose');
+var chai = require('chai');
+var expect = chai.expect;
+chai.should();
+var Db = require('mongoose');
 
-// Database setup
-var dbConfig = require('./config/database.js');
+describe('', function() {
+    before(function(done){
+        // Database setup
+        var dbConfig = require('./config/database.js');
+        Db.connect(dbConfig.localDb); // Cloud / local DB
+        var db = Db.connection;
 
-mongoose.connect(dbConfig.cloudDb); // Cloud / local DB
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function () {
-    console.log('Db connection opened.');
+        db.on('error', console.error.bind(console, 'connection error: '));
+        db.once('open', function () {
+            console.log('Db connection opened.');
+        });
+    });
 });
 
 // Helper functions
