@@ -14,6 +14,19 @@ app.factory('bookResource', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        getAll: function() {
+            var deferred = $q.defer();
+
+            $http.get('/products')
+                .success(function(books) {
+                deferred.resolve(books);
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);
