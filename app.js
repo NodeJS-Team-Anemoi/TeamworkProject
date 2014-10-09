@@ -58,7 +58,6 @@ app.use('/', index);
 app.use('/auth', auth);
 app.use('/users', users);
 app.use('/admin', administration);
-//app.use('/chat', chat);
 app.use('/orders', order);
 app.use('/shoppingCart', shoppingCart);
 app.use('/products', products);

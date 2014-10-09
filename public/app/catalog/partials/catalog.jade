@@ -1,0 +1,49 @@
+div.container(ng-controller="CatalogController")
+    button.btn.btn-danger.pull-right(ng-click="showFilters=true", ng-hide="showFilters")
+        | Add filters
+    .clear
+    br
+    div.container.jumbotron(ng-show="showFilters")
+        row
+            .col-md-3
+                label(for="titleFilter")
+                    | Title: 
+                br
+                input#titleFilter(name="titleFilter", ng-model="filters.title")
+            .col-md-3
+                label(for="priceFrom")
+                    | Price from: 
+                br
+                input#titleFilter(type="number", name="priceFrom", ng-model="filters.priceFrom")
+            .col-md-3
+                label(for="priceTo")
+                    | Price to: 
+                br
+                input#titleFilter(type="number", name="priceTo", ng-model="filters.priceTo")
+            .col-md-3
+                label(for="isbn")
+                    | ISBN: 
+                br
+                input#titleFilter(name="isbn", ng-model="filters.isbn")
+        .clear
+        br
+        button.btn.btn-default.pull-right(ng-click="showFilters=false")
+            | Hide
+        button.btn.btn-danger.pull-right(ng-click="filter(filters)")
+            | Filter
+    div.container.catalog-list
+        div.panel.panel-default(ng-repeat="book in books")
+            div.panel-heading
+                strong
+                    | {{book.title}}
+            div.panel-body
+                img.pull-left.book-small-img(ng-src="{{book.image}}")
+                p ISBN: {{book.isbn}}
+                p Price: {{book.price}}
+                p Description: {{book.annotation}}
+                button.btn.btn-success.pull-right(ng-click="buyBook(book._id)")
+                    | Buy
+                 
+        
+        
+    
