@@ -2,7 +2,7 @@ var Order = require('./../models/Order');
 
 module.exports = {
     getAll: function (req, res) {
-        Order.find({ }, function (error, orders) {
+        Order.find({}, function (error, orders) {
             if (error) {
                 res.send(error);
             }
@@ -33,7 +33,7 @@ module.exports = {
 
         console.log(order);
         order.save(function (error) {
-            if(error){
+            if (error) {
                 res.send(error);
             }
         });
@@ -46,16 +46,16 @@ module.exports = {
                 res.send(error);
             }
 
-            if (req.body.shippingAddress && req.body.shippingAddress != order.shippingAddress){
-                order.shippingAddress =  req.body.shippingAddress;
+            if (req.body.shippingAddress && req.body.shippingAddress != order.shippingAddress) {
+                order.shippingAddress = req.body.shippingAddress;
             }
 
-            if (req.body.paymentMethod && req.body.paymentMethod != order.paymentMethod){
-                order.paymentMethod =  req.body.paymentMethod;
+            if (req.body.paymentMethod && req.body.paymentMethod != order.paymentMethod) {
+                order.paymentMethod = req.body.paymentMethod;
             }
 
             order.save(function (error) {
-                if(error){
+                if (error) {
                     res.send(error);
                 }
             });
@@ -72,7 +72,7 @@ module.exports = {
             order.deleted = true;
 
             order.save(function (error) {
-                if(error){
+                if (error) {
                     res.send(error);
                 }
             });
@@ -82,20 +82,36 @@ module.exports = {
     },
     getSortedAndPaged: function (req, res) {
 
-    var perPage = 5,
-        page = Math.max(0, parseInt(req.params.page)),
-        sortBy = req.params.sortBy;
+        var perPage = 5,
+            page = Math.max(0, parseInt(req.params.page)),
+            sortBy = req.params.sortBy;
 
-    Order.find({'deleted': false}).sort(sortBy).skip(perPage * page).limit(perPage).exec(function (error, orders) {
-        if (error) {
-            res.send(error);
-        }
+        Order.find({
+            'deleted': false
+        }).sort(sortBy).skip(perPage * page).limit(perPage).exec(function (error, orders) {
+            if (error) {
+                res.send(error);
+            }
 
-        res.json(orders);
-    })
+            res.json(orders);
+        })
     },
     getByUserId: function (req, res) {
-        Order.find({'userId': req.params.id }, function (error, orders) {
+        Order.find({
+            'userId': req.params.id
+        }, function (error, orders) {
+            if (error) {
+                res.send(error);
+            }
+
+            res.json(orders);
+        });
+    },
+    getReadyToBeShipped: function (req, res) {
+        Order.find({
+            'userId': req.params.id,
+            'readyToBeShipped': true
+        }, function (error, orders) {
             if (error) {
                 res.send(error);
             }
