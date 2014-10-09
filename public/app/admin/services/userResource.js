@@ -63,6 +63,18 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        create: function (user) {
+            var deferred = $q.defer();
+            $http.post(routeUrl, user)
+                .success(function () {
+                    deferred.resolve();
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);
