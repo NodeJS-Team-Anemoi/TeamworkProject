@@ -2,8 +2,9 @@
 
 app.controller('OrderDetailsController', ['$scope', '$location', '$routeParams', 'auth', 'orderService',
     function OrderDetailsController($scope, $location, $routeParams, auth, orderService) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getOrder();
+
         function getOrder(){
             orderService.getOrder($routeParams.id)
                 .then(function(order) {
@@ -12,5 +13,5 @@ app.controller('OrderDetailsController', ['$scope', '$location', '$routeParams',
                     console.log(err);
                 })
         }
-//        }
+
     }]);

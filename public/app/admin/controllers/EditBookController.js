@@ -2,15 +2,16 @@
 
 app.controller('EditBookController', ['$scope', '$location', '$routeParams', 'auth', 'bookResource',
     function EditBookController($scope, $location, $routeParams, auth, bookResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getBook();
-        function  getBook(){
+
+        function getBook() {
             bookResource.getBook($routeParams.id)
-                .then(function(book) {
+                .then(function (book) {
                     $scope.currentBook = book;
                     $scope.currentBookAuthors = book.authors.join(', ');
                     $scope.currentBookCategories = book.categories.join(', ');
-                }, function(err){
+                }, function (err) {
                     console.log(err);
                 })
         }
@@ -21,5 +22,4 @@ app.controller('EditBookController', ['$scope', '$location', '$routeParams', 'au
                     $location.path('/');
                 });
         };
-//        }
     }]);

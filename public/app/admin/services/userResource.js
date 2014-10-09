@@ -16,7 +16,7 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        getUser: function(id){
+        getUser: function (id) {
             var deferred = $q.defer();
             $http.get(routeUrl + '/' + id)
                 .success(function (user) {
@@ -28,7 +28,7 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        updateUser: function(id, user){
+        updateUser: function (id, user) {
             var deferred = $q.defer();
             $http.put(routeUrl + '/' + id, user)
                 .success(function (user) {
@@ -40,7 +40,7 @@ app.factory('userResource', ['$http', '$q', function ($http, $q) {
 
             return deferred.promise;
         },
-        deleteUser: function(id){
+        deleteUser: function (id) {
             var deferred = $q.defer();
             $http.delete(routeUrl + '/' + id)
                 .success(function () {

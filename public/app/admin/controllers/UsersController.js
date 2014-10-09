@@ -2,7 +2,7 @@
 
 app.controller('UsersController', ['$scope', '$location', 'auth', 'userResource',
     function UsersController($scope, $location, auth, userResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         $scope.page = 0;
         $scope.sortBy = 'username';
         $scope.nextPage = nextPage;
@@ -30,6 +30,4 @@ app.controller('UsersController', ['$scope', '$location', 'auth', 'userResource'
                 getUsers($scope.page, $scope.sortBy);
             }
         }
-
-//        }
     }]);
