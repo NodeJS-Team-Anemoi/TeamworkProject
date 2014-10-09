@@ -1,0 +1,16 @@
+.container
+    .well
+        form.form-horizontal(name="editOrderForm")
+            fieldset
+                legend Edit Order
+                .form-group
+                    label.col-md-2.control-label(for="email") Shipping Address
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentOrder.shippingAddress}}", ng-model="order.shippingAddress")
+                .form-group
+                    label.col-md-2.control-label(for="role") Payment Method
+                    .col-md-10
+                        input.form-control(type="text", placeholder="{{currentOrder.paymentMethod}}", ng-model="order.paymentMethod")
+                .pull-right
+                    button.btn.btn-primary(ng-click="editOrder(order)", ng-disabled="editOrderForm.$invalid") Save
+                    a.btn.btn-primary(href="#/admin/orders") Cancel
