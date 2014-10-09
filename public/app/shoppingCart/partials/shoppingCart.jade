@@ -1,5 +1,39 @@
-.col-md-6
-    .panel.panel-primary
-        .panel-heading.text-center The books you have chosen
-        .panel-body.list-group(ng-controller="ShoppingCartController")
-            book-small(ng-repeat="product in cart.products | orderBy: 'date'")
+//.col-md-6
+//    .panel.panel-primary
+//        .panel-heading.text-center The books you have chosen
+//        .panel-body.list-group(ng-controller="ShoppingCartController")
+//            book-small(ng-repeat="product in cart.products | orderBy: 'date'")
+
+.container
+    .well4
+        .row(ng-repeat="order in readyOrders")
+            .col-md-3
+                span User:
+                strong {{order.userName}}
+            .col-md-3
+                span Date:
+                strong {{order.date | date : 'medium'}}
+            .col-md-3
+                span Shipping Address:
+                strong {{order.shippingAddress}}
+            .col-md-3
+                span Payment method:
+                strong {{order.paymentMethod}}
+
+        button.btn.btn-primary(ng-click="shipOrder(order._id)") Ship order
+
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th #
+                    th Title
+                    th Price
+                    th isbn
+                    th Language
+            tbody
+                tr(ng-repeat="product in order.products")
+                    td {{$index + 1}}
+                    td {{order.products[$index].title}}
+                    td {{order.products[$index].price}}
+                    td {{order.products[$index].isbn}}
+                    td {{order.products[$index].language}}

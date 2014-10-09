@@ -76,6 +76,18 @@ app.factory('ordersResource', ['$http', '$q',
                     });
 
                 return deferred.promise;
+            },
+            getReadyToBeShipped: function (id) {
+                var deferred = $q.defer();
+                $http.get(routeUrl + '/user/' + id + '/ready')
+                    .success(function (orders) {
+                        deferred.resolve(orders);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
             }
         }
 }]);

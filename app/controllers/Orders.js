@@ -106,5 +106,17 @@ module.exports = {
 
             res.json(orders);
         });
+    },
+    getReadyToBeShipped: function (req, res) {
+        Order.find({
+            'userId': req.params.id,
+            'readyToBeShipped': true
+        }, function (error, orders) {
+            if (error) {
+                res.send(error);
+            }
+
+            res.json(orders);
+        });
     }
 }

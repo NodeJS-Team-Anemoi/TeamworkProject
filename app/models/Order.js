@@ -9,7 +9,8 @@ var OrderSchema = new Schema({
     date: Date,
     shippingAddress: String,
     paymentMethod: String,
-    deleted: Boolean
+    deleted: Boolean,
+    readyToBeShipped: Boolean
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
