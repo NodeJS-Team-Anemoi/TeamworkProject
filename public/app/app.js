@@ -53,6 +53,14 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/delete-user',
             controller: 'DeleteUserController'
         })
+        .when('/admin/orders', {
+            templateUrl: '/partials/admin/manage-orders',
+            controller: 'OrdersManagementController'
+        })
+        .when('/admin/orders/edit/:id', {
+            templateUrl: '/partials/admin/edit-order',
+            controller: 'EditOrderController'
+        })
         .when('/my-orders/:id', {
             templateUrl: 'partials/orders/my-orders',
             controller: 'MyOrdersController'
@@ -60,6 +68,10 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/chat', {
             templateUrl: 'partials/chat/chat',
             controller: 'ChatController'
+        })
+        .when('/shoppingCart', {
+            templateUrl: 'partials/shoppingCart/shoppingCart',
+            controller: 'ShoppingCartController'
         });
 });
 

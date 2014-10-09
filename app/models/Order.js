@@ -8,7 +8,8 @@ var OrderSchema = new Schema({
     products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
     date: Date,
     shippingAddress: String,
-    paymentMethod: String
+    paymentMethod: String,
+    deleted: Boolean
 });
 
 module.exports = mongoose.model('Order', OrderSchema);

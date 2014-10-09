@@ -20,15 +20,18 @@ module.exports = {
         });
     },
     create: function (req, res) {
+        console.log(req.body);
         var order = new Order({
             userId: req.body.title,
             userName: req.body.userName,
-            products: req.body.products.split(', '),
+            products: [],
             date: req.body.date,
             shippingAddress: req.body.shippingAddress,
-            paymentMethod: req.body.paymentMethod
+            paymentMethod: req.body.paymentMethod,
+            deleted: false
         });
 
+        console.log(order);
         order.save(function (error) {
             if(error){
                 res.send(error);
@@ -43,12 +46,13 @@ module.exports = {
                 res.send(error);
             }
 
-            order.userId = req.body.title;
-            order.userName =  req.body.userName;
-            order.products =  req.body.products.split(', ');
-            order.date = req.body.date;
-            order.shippingAddress =  req.body.shippingAddress;
-            order.paymentMethod =  req.body.paymentMethod;
+            if (req.body.shippingAddress && req.body.shippingAddress != order.shippingAddress){
+                order.shippingAddress =  req.body.shippingAddress;
+            }
+
+            if (req.body.paymentMethod && req.body.paymentMethod != order.paymentMethod){
+                order.paymentMethod =  req.body.paymentMethod;
+            }
 
             order.save(function (error) {
                 if(error){
@@ -65,7 +69,7 @@ module.exports = {
                 res.send(error);
             }
 
-            order.local.deleted = true;
+            order.deleted = true;
 
             order.save(function (error) {
                 if(error){
@@ -75,5 +79,19 @@ module.exports = {
 
             res.end();
         });
+    },
+    getSortedAndPaged: function (req, res) {
+
+    var perPage = 5,
+        page = Math.max(0, parseInt(req.params.page)),
+        sortBy = req.params.sortBy;
+
+    Order.find({'deleted': false}).sort(sortBy).skip(perPage * page).limit(perPage).exec(function (error, orders) {
+        if (error) {
+            res.send(error);
+        }
+
+        res.json(orders);
+    })
     }
 }
