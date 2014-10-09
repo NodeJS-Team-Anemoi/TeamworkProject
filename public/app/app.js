@@ -84,6 +84,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/shoppingCart', {
             templateUrl: 'partials/shoppingCart/shoppingCart',
             controller: 'ShoppingCartController'
+        })
+        .when('/about', {
+            templateUrl: 'partials/about/about'
         });
 });
 
