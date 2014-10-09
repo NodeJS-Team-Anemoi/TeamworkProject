@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ProfileController', function($scope, $location, identity) {
+app.controller('ProfileController', function($scope, $location, identity, auth) {
     $scope.identity = identity;
     $scope.currentUser = identity.getCurrentUser();
 
