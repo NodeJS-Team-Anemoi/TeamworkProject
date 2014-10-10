@@ -13,4 +13,7 @@ router.route('/:id')
     .get(ProductsController.getById)
     .put(ProductsController.update);
 
+router.route('/page/:page')
+    .get(ProductsController.getPaged);
+
 module.exports = router;

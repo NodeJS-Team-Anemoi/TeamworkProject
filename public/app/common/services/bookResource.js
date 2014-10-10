@@ -52,6 +52,18 @@ app.factory('bookResource', ['$http', '$q', function ($http, $q) {
                 });
 
             return deferred.promise;
+        },
+        getPagedBooks: function (page) {
+            var deferred = $q.defer();
+            $http.get(baseUrl + '/page/' + page)
+                .success(function (books) {
+                    deferred.resolve(books);
+                })
+                .error(function (error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
     }
 }]);

@@ -43,7 +43,10 @@ div.container(ng-controller="CatalogController")
                 p Description: {{book.annotation}}
                 button.btn.btn-success.pull-right(ng-click="buyBook(book._id)")
                     | Buy
-                 
-        
-        
-    
+    .row
+        .col-md-1.col-lg-offset-9
+            button.btn.btn-info(ng-click="previousPage()") <<
+        .col-md-1
+            input.form-control(type="text", value="{{page}}")
+        .col-md-1
+            button.btn.btn-info(ng-click="nextPage()") >>
