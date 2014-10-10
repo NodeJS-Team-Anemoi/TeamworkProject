@@ -1,10 +1,11 @@
 'use strict';
 
-app.controller('CatalogController', ['$scope', 'bookResource',
-     function ($scope, bookResource) {
+app.controller('CatalogController', ['$scope', 'bookResource', 'identity',
+     function ($scope, bookResource, identity) {
          $scope.page = 0;
          $scope.nextPage = nextPage;
          $scope.previousPage = previousPage;
+         $scope.identity = identity;
 
          getBooks($scope.page);
 

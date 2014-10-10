@@ -41,6 +41,8 @@ div.container(ng-controller="CatalogController")
                 p ISBN: {{book.isbn}}
                 p Price: {{book.price}}
                 p Description: {{book.annotation}}
+                a.btn.btn-danger.pull-right(ng-show="identity.isAdmin()", href="#/admin/edit-book/{{book._id}}")
+                    | Edit
                 button.btn.btn-success.pull-right(ng-click="buyBook(book._id)")
                     | Buy
     .row
