@@ -1,9 +1,12 @@
 'use strict';
 
+var request = require('request');
 var chai = require('chai');
+var uuid = require('node-uuid');
 var expect = chai.expect;
 chai.should();
-var Db = require('mongoose');
+
+var Db = require('mongoose')
 
 describe('', function() {
     before(function(done){

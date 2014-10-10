@@ -100,21 +100,6 @@ module.exports = {
                 product.categories = req.body.categories.split(', ');
             }
 
-//            product.title = req.body.title;
-//            product.price = req.body.price;
-//            product.rating = req.body.rating;
-//            product.timesPurchased = req.body.timesPurchased;
-//            product.publisher = req.body.publisher;
-//            product.image = req.body.image;
-//            product.year = req.body.year;
-//            product.isbn = req.body.isbn;
-//            product.pages = req.body.pages;
-//            product.language = req.body.language;
-//            product.countInStock = req.body.countInStock;
-//            product.annotation = req.body.annotation;
-//            product.authors =  req.body.authors.split(', ');
-//            product.categories = req.body.categories.split(', ');
-
             product.save(function (error) {
                 if(error){
                     res.send(error);
@@ -123,5 +108,18 @@ module.exports = {
 
             res.end();
         });
+    },
+    getPaged: function (req, res) {
+
+        var perPage = 10,
+            page = Math.max(0, parseInt(req.params.page));
+
+        Product.find({}).skip(perPage * page).limit(perPage).exec(function (error, orders) {
+            if (error) {
+                res.send(error);
+            }
+
+            res.json(orders);
+        })
     }
 };
