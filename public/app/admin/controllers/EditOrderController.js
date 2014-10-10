@@ -2,8 +2,9 @@
 
 app.controller('EditOrderController', ['$scope', '$location', '$routeParams', 'auth', 'ordersResource',
     function EditOrderController($scope, $location, $routeParams, auth, ordersResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getOrder();
+
         function getOrder(){
             ordersResource.getOrder($routeParams.id)
                 .then(function(order) {
@@ -20,6 +21,4 @@ app.controller('EditOrderController', ['$scope', '$location', '$routeParams', 'a
                     $location.path('/admin');
                 });
         };
-
-//        }
     }]);

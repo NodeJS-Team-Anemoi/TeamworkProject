@@ -2,13 +2,14 @@
 
 app.controller('EditUserController', ['$scope', '$location', '$routeParams', 'auth', 'userResource',
     function EditUserController($scope, $location, $routeParams, auth, userResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getUser();
-        function getUser(){
+
+        function getUser() {
             userResource.getUser($routeParams.id)
-                .then(function(user) {
+                .then(function (user) {
                     $scope.currentUser = user;
-                }, function(err){
+                }, function (err) {
                     console.log(err);
                 })
         }
@@ -20,6 +21,4 @@ app.controller('EditUserController', ['$scope', '$location', '$routeParams', 'au
                     $location.path('/admin');
                 });
         };
-
-//        }
     }]);

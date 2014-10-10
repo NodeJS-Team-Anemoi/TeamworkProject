@@ -2,13 +2,14 @@
 
 app.controller('DeleteOrderController', ['$scope', '$location', '$routeParams', 'auth', 'ordersResource',
     function DeleteUserController($scope, $location, $routeParams, auth, ordersResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getOrder();
-        function getOrder(){
+
+        function getOrder() {
             ordersResource.getOrder($routeParams.id)
-                .then(function(order) {
+                .then(function (order) {
                     $scope.order = order;
-                }, function(err){
+                }, function (err) {
                     console.log(err);
                 })
         }
@@ -20,5 +21,4 @@ app.controller('DeleteOrderController', ['$scope', '$location', '$routeParams', 
                 });
         };
 
-//        }
     }]);

@@ -2,8 +2,9 @@
 
 app.controller('DeleteUserController', ['$scope', '$location', '$routeParams', 'auth', 'userResource',
     function DeleteUserController($scope, $location, $routeParams, auth, userResource) {
-//        if (auth.isAuthorizedForRole('Admin')) {
+
         getUser();
+
         function getUser(){
             userResource.getUser($routeParams.id)
                 .then(function(user) {
@@ -19,6 +20,4 @@ app.controller('DeleteUserController', ['$scope', '$location', '$routeParams', '
                     $location.path('/admin/users');
                 });
         };
-
-//        }
     }]);
