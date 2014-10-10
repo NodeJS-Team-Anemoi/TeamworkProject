@@ -73,7 +73,7 @@ module.exports = {
     },
     getSortedAndPaged: function (req, res) {
 
-        var perPage = 5,
+        var perPage = 10,
             page = Math.max(0, parseInt(req.params.page)),
             sortBy = 'local.' + req.params.sortBy;
 
