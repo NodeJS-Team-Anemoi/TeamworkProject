@@ -43,14 +43,27 @@ app.factory('identity', ['$cookieStore', function($cookieStore) {
             currentUser = user;
         },
         isAuthenticated: function() {
-            return !!this.getCurrentUser();
+            var result;
+            
+            try {
+                result = !!this.getCurrentUser();
+            }
+            catch (err) {
+                result = false;
+            }
+                
+            return result;
         },
         isAdmin: function() {
-            if (this.getCurrentUser().local.role === 'Admin') {
-                return true;
+            var result;
+            try {
+                result = this.getCurrentUser().local.role === 'Admin';
+            }
+            catch (err) {
+                result = false;
             }
             
-            return false;
+            return result;
         }
     }
 }]);
