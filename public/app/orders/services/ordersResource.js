@@ -5,6 +5,18 @@ app.factory('ordersResource', ['$http', '$q',
         var routeUrl = '/orders';
 
         return {
+            create: function (order) {
+                var deferred = $q.defer();
+                $http.post(routeUrl, order)
+                    .success(function (order) {
+                        deferred.resolve(order);
+                    })
+                    .error(function (error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            },
             getAll: function () {
                 var deferred = $q.defer();
                 $http.get(routeUrl)

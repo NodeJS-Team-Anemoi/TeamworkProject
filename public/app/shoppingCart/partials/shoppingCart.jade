@@ -19,14 +19,31 @@
                     th #
                     th Title
                     th Price
-                    th isbn
+                    th ISBN
                     th Language
             tbody
-                tr(ng-repeat="product in currentOrder.products")
+                tr(ng-repeat="book in currentOrder.products")
                     td {{$index + 1}}
-                    td {{product.title}}
-                    td {{product.price}}
-                    td {{product.isbn}}
-                    td {{product.language}}
+                    td {{book.title}}
+                    td {{book.price}}
+                    td {{book.isbn}}
+                    td {{book.language}}
+                    td
+                        button.btn.btn-danger.btn-sm(ng-click="deleteFromCurrentOrder(book)") X
 
-    button.btn.btn-success.pull-right(ng-click="checkOut()") Check out
+    button.btn.btn-success.pull-right(ng-click="showOrderDetails=true", ng-hide="showOrderDetails") Continue
+    .clear
+    div.jumbotron(ng-show="showOrderDetails")
+        h3 Order details
+        label(for="paymentMethod")
+            | Payment method
+        br
+        input#paymentMethod(name="paymentMethod", ng-model="order.paymentMethod")
+        br
+        label(for="shippingAddress")
+            | Shipping address
+        br
+        input#paymentMethod(name="shippingAddress", ng-model="order.shippingAddress")
+        br
+        button.btn.btn-success.pull-right(ng-click="checkOut(order)")
+            | Check out

@@ -1,10 +1,11 @@
 'use strict';
 
-app.controller('CatalogController', ['$scope', 'bookResource',
-     function ($scope, bookResource) {
+app.controller('CatalogController', ['$scope', 'bookResource', '$localStorage', 'identity',
+     function ($scope, bookResource, $localStorage, identity) {
          $scope.page = 0;
          $scope.nextPage = nextPage;
          $scope.previousPage = previousPage;
+         $scope.showFilters = false;
 
          getBooks($scope.page);
 
@@ -16,6 +17,22 @@ app.controller('CatalogController', ['$scope', 'bookResource',
                      console.log(err);
                  })
          }
+         
+         $scope.buyBook = function (book) {
+             var currentOrder = $localStorage.currentOrder || {
+                userId: identity.getCurrentUser()._id,
+                userName: identity.getCurrentUser().local.username,
+                date: undefined,
+                shippingAddress: undefined,
+                paymentMethod: undefined,
+                products: [],
+                deleted: false,
+                readyToBeShipped: false
+             };
+             
+             currentOrder.products.push(book);
+             $localStorage.currentOrder = currentOrder;
+         };
 
          function nextPage() {
              $scope.page++;

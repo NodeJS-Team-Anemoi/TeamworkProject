@@ -20,7 +20,6 @@ module.exports = {
         });
     },
     create: function (req, res) {
-        console.log(req.body);
         var order = new Order({
             userId: req.body.title,
             userName: req.body.userName,
@@ -31,7 +30,6 @@ module.exports = {
             deleted: false
         });
 
-        console.log(order);
         order.save(function (error) {
             if (error) {
                 res.send(error);
