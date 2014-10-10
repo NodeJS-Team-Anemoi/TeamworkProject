@@ -35,10 +35,7 @@ app.controller('ShoppingCartController', ['$scope', '$localStorage', '$location'
             
             // TODO: for each product in products countInStock--
             
-            console.log(finalizedOrder);
-            
             ordersResource.create(finalizedOrder).then(function () {
-                console.log('Order created successfully!');
                 $localStorage.currentOrder = {
                     userId: identity.getCurrentUser()._id,
                     userName: identity.getCurrentUser().local.username,

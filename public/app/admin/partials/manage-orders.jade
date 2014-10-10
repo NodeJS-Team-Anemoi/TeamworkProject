@@ -23,7 +23,7 @@
             tbody
                 tr(ng-repeat="order in orders")
                     td {{order.userName}}
-                    td {{order.date}}
+                    td {{order.date | date:'medium'}}
                     td {{order.shippingAddress}}
                     td {{order.paymentMethod}}
                     td

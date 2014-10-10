@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.0.0",
+    "bower": "^1.3.12",
     "chai": "~1.9.2",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
@@ -16,6 +17,8 @@
     "express-session": "~1.8.2",
     "jade": "~1.3.0",
     "karma": "~0.12.24",
+    "kraken": "^0.2.1",
+    "lusca": "^1.0.1",
     "method-override": "~2.2.0",
     "mocha": "~1.21.4",
     "mongoose": "~3.8.17",
@@ -27,5 +30,12 @@
     "socket.io": "^1.1.0",
     "static-favicon": "~1.0.0",
     "bower": "^1.3.12"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^1.21.4",
+    "node-uuid": "^1.4.1",
+    "request": "^2.45.0",
+    "superagent": "^0.20.0"
   }
 }

@@ -6,6 +6,7 @@ app.controller('CatalogController', ['$scope', 'bookResource', '$localStorage', 
          $scope.nextPage = nextPage;
          $scope.previousPage = previousPage;
          $scope.showFilters = false;
+         $scope.identity = identity;
 
          getBooks($scope.page);
 
