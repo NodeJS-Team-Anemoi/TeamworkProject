@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
+//var lusca = require('lusca');
 
 var app = express();
 
@@ -43,6 +44,14 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+//app.use(lusca({
+//    csrf: true,
+//    csp: { /* ... */},
+//    xframe: 'SAMEORIGIN',
+//    p3p: 'ABCDEF',
+//    hsts: {maxAge: 31536000, includeSubDomains: true},
+//    xssProtection: true
+//}));
 
 // Routes
 var index = require('./routes/index');
