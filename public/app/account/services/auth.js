@@ -51,8 +51,8 @@ app.factory('auth', ['$http', '$q', 'identity', 'UsersResource', function($http,
                 return $q.reject('not authorized');
             }
         },
-        isAuthorizedForRole: function(role) {
-            if (identity.isAuthorizedForRole(role)) {
+        isAdmin: function(role) {
+            if (identity.isAdmin()) {
                 return true;
             }
             else {

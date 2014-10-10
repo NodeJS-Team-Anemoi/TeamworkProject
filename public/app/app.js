@@ -7,7 +7,7 @@ app.config(function ($routeProvider, $locationProvider) {
     var routeUserChecks = {
         adminRole: {
             authenticate: function(auth) {
-                return auth.isAuthorizedForRole('Admin');
+                return auth.isAdmin();
             }
         },
         authenticated: {
