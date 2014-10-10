@@ -1,6 +1,6 @@
 .container
     .well4
-        .row
+        //.row
             .col-md-3
                 span User:
                 strong {{currentOrder.userName}}
@@ -12,8 +12,7 @@
                 strong {{currentOrder.shippingAddress}}
             .col-md-3
                 span Payment method:
-                strong {{currentOrder.paymentMethod}}
-
+                strong {{currentOrder.paymentMethod}} //
         table.table.table-striped.table-hover
             thead
                 tr
@@ -30,4 +29,4 @@
                     td {{product.isbn}}
                     td {{product.language}}
 
-    button.btn.btn-primary(ng-click="checkOut()") Check out
+    button.btn.btn-success.pull-right(ng-click="checkOut()") Check out

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('Bookstore', ['ngResource', 'ngRoute', 'ngCookies']);
+var app = angular.module('Bookstore', ['ngResource', 'ngRoute', 'ngCookies', 'ngStorage']);
 
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -92,11 +92,6 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/orders/:id', {
             templateUrl: 'partials/orders/my-orders',
             controller: 'OrdersController',
-            resolve: routeUserChecks.authenticated
-        })
-        .when('/chat', {
-            templateUrl: 'partials/chat/chat',
-            controller: 'ChatController',
             resolve: routeUserChecks.authenticated
         })
         .when('/shoppingCart', {

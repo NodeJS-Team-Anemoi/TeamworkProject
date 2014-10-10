@@ -1,10 +1,11 @@
 'use strict';
 
-app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity', 
-    function ($scope, ordersResource, identity) {
+app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity', '$localStorage', 
+    function ($scope, ordersResource, identity, $localStorage) {
         var currentUserId = identity.getCurrentUser()._id;
-
-        $scope.currentOrder = ""; // TODO:
+        
+        
+        $scope.currentOrder = $localStorage.currentOrder;
 
         ordersResource.getOrdersByUserId(currentUserId)
             .then(function (orders) {
@@ -17,6 +18,6 @@ app.controller('ShoppingCartController', ['$scope', 'ordersResource','identity',
             });
 
         $scope.checkOut = function(){
-            // open a new window to ask for credit card and shipping date
+            console.log($localStorage.currentOrder);
         }
     }]);
